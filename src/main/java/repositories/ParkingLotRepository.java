@@ -54,7 +54,7 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
     }
 
     @Override
-    public String fetch(String ticket) {
+    public String fetch(String[] ticketInfo) {
         return "";
     }
 

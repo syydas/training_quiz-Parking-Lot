@@ -70,7 +70,8 @@ public class Application {
 
     public static String fetch(String ticket) throws InvalidTicketException {
         String car = "";
-        car = lotRepository.fetch(ticket);
+        String[] ticketInfo = ticket.split(",");
+        car = lotRepository.fetch(ticketInfo);
         if (car.equals("")) {
             throw new InvalidTicketException("很抱歉，无法通过您提供的停车券为您找到相应的车辆，请您再次核对停车券是否有效！");
         }
