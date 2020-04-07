@@ -106,9 +106,10 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
                 }
                 if (lot.getId() != 0) {
                     lot.setCarNum(carNumber);
-                    sql = "UPDATE " + lotName + " SET car_num = ?";
+                    sql = "UPDATE " + lotName + " SET car_num = ? WHERE id = ?";
                     ptmt = conn.prepareStatement(sql);
                     ptmt.setString(1, lot.getCarNum());
+                    ptmt.setInt(2, lot.getId());
                     ptmt.execute();
                     return lotName + "," + lot;
                 }
