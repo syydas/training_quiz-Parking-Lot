@@ -1,10 +1,10 @@
 package repositories;
 
-import entities.ParkingLot;
+import entities.ParkingLots;
 
 import java.util.List;
 
 public interface ParkingLotRepositoryI {
-    void init(List<ParkingLot> parkingLots);
+    void init(List<ParkingLots> parkingLots);
     String park (String carNumber);
 }

@@ -1,31 +1,35 @@
 package entities;
 
 public class ParkingLot {
-
-    private String lotName;
-    private int numberOfCars;
+    private int id;
+    private String carNum;
 
     public ParkingLot() {
     }
 
-    public ParkingLot(String lotName, int numberOfCars) {
-        this.lotName = lotName;
-        this.numberOfCars = numberOfCars;
+    public ParkingLot(int id, String carNum) {
+        this.id = id;
+        this.carNum = carNum;
     }
 
-    public String getLotName() {
-        return lotName;
+    public int getId() {
+        return id;
     }
 
-    public void setLotName(String lotName) {
-        this.lotName = lotName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getNumberOfCars() {
-        return numberOfCars;
+    public String getCarNum() {
+        return carNum;
     }
 
-    public void setNumberOfCars(int numberOfCars) {
-        this.numberOfCars = numberOfCars;
+    public void setCarNum(String carNum) {
+        this.carNum = carNum;
+    }
+
+    @Override
+    public String toString() {
+        return id + "," + carNum ;
     }
 }

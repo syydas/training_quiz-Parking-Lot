@@ -1,4 +1,4 @@
-import entities.ParkingLot;
+import entities.ParkingLots;
 import exception.ParkingLotFullException;
 import repositories.ParkingLotRepository;
 import repositories.ParkingLotRepositoryI;
@@ -49,10 +49,10 @@ public class Application {
 
     public static void init(String initInfo) {
       String[] lotsInfo = initInfo.split(",");
-      List<ParkingLot> parkingLots = new ArrayList<>();
+      List<ParkingLots> parkingLots = new ArrayList<>();
       for (String info : lotsInfo) {
         String[] lotInfo = info.split(":");
-        ParkingLot lot = new ParkingLot(lotInfo[0], Integer.parseInt(lotInfo[1]));
+        ParkingLots lot = new ParkingLots(lotInfo[0], Integer.parseInt(lotInfo[1]));
         parkingLots.add(lot);
       }
       lotRepository.init(parkingLots);
