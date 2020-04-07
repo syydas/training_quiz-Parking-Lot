@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS parking_lot;
+CREATE TABLE parking_lot (
+    lot_name CHAR(1) PRIMARY KEY,
+    lot_num INT NOT NULL
+)  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8;
