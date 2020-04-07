@@ -78,7 +78,7 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
                 sql = "CREATE TABLE " + lotName + "(" +
                         "id INT PRIMARY KEY AUTO_INCREMENT," +
                         "car_num VARCHAR(101)" +
-                        ")";
+                        ") ENGINE=INNODB DEFAULT CHARACTER SET=UTF8";
                 ptmt = conn.prepareStatement(sql);
                 ptmt.execute();
 
