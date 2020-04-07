@@ -25,6 +25,12 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
         }
     }
 
+    @Override
+    public String park(String carNumber) {
+        
+        return "";
+    }
+
     public void initParkingLots(List<ParkingLot> parkingLots) {
         Connection conn = null;
         PreparedStatement ptmt = null;
@@ -44,7 +50,7 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
                 ptmt.execute();
                 sql = "CREATE TABLE " + lotName + "(" +
                         "id INT PRIMARY KEY AUTO_INCREMENT," +
-                        "car_num VARCHAR(" + lotNum + ")" +
+                        "car_num VARCHAR(101)" +
                         ")";
                 ptmt = conn.prepareStatement(sql);
                 ptmt.execute();

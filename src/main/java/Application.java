@@ -1,4 +1,5 @@
 import entities.ParkingLot;
+import exception.ParkingLotFullException;
 import repositories.ParkingLotRepository;
 import repositories.ParkingLotRepositoryI;
 
@@ -10,7 +11,6 @@ public class Application {
     private static ParkingLotRepositoryI lotRepository = new ParkingLotRepository();
 
     public static void main(String[] args) {
-
         operateParking();
     }
 
@@ -58,8 +58,12 @@ public class Application {
       lotRepository.init(parkingLots);
     }
 
-    public static String park(String carNumber) {
+    public static String park(String carNumber) throws ParkingLotFullException {
         String ticket = "";
+        ticket = lotRepository.park(carNumber);
+        if (ticket.equals("")) {
+            throw new ParkingLotFullException("非常抱歉，由于车位已满，暂时无法为您停车！");
+        }
         return ticket;
     }
 
