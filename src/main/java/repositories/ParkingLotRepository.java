@@ -53,6 +53,11 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
         return "";
     }
 
+    @Override
+    public String fetch(String ticket) {
+        return "";
+    }
+
     public void initParkingLots(List<ParkingLots> parkingLots) {
         Connection conn = null;
         PreparedStatement ptmt = null;
