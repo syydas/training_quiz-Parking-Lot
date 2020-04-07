@@ -2,23 +2,23 @@ package entities;
 
 public class ParkingLot {
 
-    private String lotNumber;
+    private String lotName;
     private int numberOfCars;
 
     public ParkingLot() {
     }
 
-    public ParkingLot(String lotNumber, int numberOfCars) {
-        this.lotNumber = lotNumber;
+    public ParkingLot(String lotName, int numberOfCars) {
+        this.lotName = lotName;
         this.numberOfCars = numberOfCars;
     }
 
-    public String getLotNumber() {
-        return lotNumber;
+    public String getLotName() {
+        return lotName;
     }
 
-    public void setLotNumber(String lotNumber) {
-        this.lotNumber = lotNumber;
+    public void setLotName(String lotName) {
+        this.lotName = lotName;
     }
 
     public int getNumberOfCars() {

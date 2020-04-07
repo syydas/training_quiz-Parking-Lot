@@ -1,14 +1,16 @@
-import controllers.ParkingLotController;
 import entities.ParkingLot;
+import repositories.ParkingLotRepository;
+import repositories.ParkingLotRepositoryI;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Application {
+    private static ParkingLotRepositoryI lotRepository = new ParkingLotRepository();
 
     public static void main(String[] args) {
-        ParkingLotController parkingLotController = new ParkingLotController();
+
         operateParking();
     }
 
@@ -53,7 +55,7 @@ public class Application {
         ParkingLot lot = new ParkingLot(lotInfo[0], Integer.parseInt(lotInfo[1]));
         parkingLots.add(lot);
       }
-      
+      lotRepository.init(parkingLots);
     }
 
     public static String park(String carNumber) {
