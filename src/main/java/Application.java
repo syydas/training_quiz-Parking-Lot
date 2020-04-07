@@ -59,7 +59,8 @@ public class Application {
     }
 
     public static String park(String carNumber) {
-        return "";
+        String ticket = "";
+        return ticket;
     }
 
     public static String fetch(String ticket) {
