@@ -18,7 +18,7 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
         Connection conn = null;
         PreparedStatement ptmt = null;
         try {
-            String sql = "TRUNCATE TABLE parking_lot";
+            String sql = "TRUNCATE TABLE parking_lots";
             conn = JDBCUtil.connectToDB();
             ptmt = conn.prepareStatement(sql);
             ptmt.execute();
@@ -38,7 +38,7 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
         ResultSet rs = null;
         try {
             conn = JDBCUtil.connectToDB();
-            String sql = "SELECT lot_name FROM parking_lot";
+            String sql = "SELECT lot_name FROM parking_lots";
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
@@ -96,7 +96,7 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
             for (ParkingLots lot : parkingLots) {
                 String lotName = lot.getLotName();
                 int lotNum = lot.getNumberOfCars();
-                String sql = "INSERT INTO parking_lot (lot_name,lot_num) values(?,?)";
+                String sql = "INSERT INTO parking_lots (lot_name,lot_num) values(?,?)";
                 conn = JDBCUtil.connectToDB();
                 ptmt = conn.prepareStatement(sql);
                 ptmt.setString(1, lotName);
