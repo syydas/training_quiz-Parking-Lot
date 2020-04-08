@@ -55,6 +55,37 @@ public class ParkingLotRepository implements ParkingLotRepositoryI {
 
     @Override
     public String fetch(String[] ticketInfo) {
+        Connection conn = null;
+        PreparedStatement ptmt = null;
+        ResultSet rs = null;
+        String lotName = ticketInfo[0];
+        int id = Integer.parseInt(ticketInfo[1]);
+        String carNum = ticketInfo[2];
+        ParkingLot lot = new ParkingLot();
+        try {
+            String sql = "SELECT car_num FROM " + lotName + " WHERE id = ? and car_num = ?";
+            conn = JDBCUtil.connectToDB();
+            ptmt = conn.prepareStatement(sql);
+            ptmt.setInt(1, id);
+            ptmt.setString(2, carNum);
+            rs = ptmt.executeQuery();
+            while (rs.next()) {
+                lot.setCarNum(rs.getString("car_num"));
+            }
+
+            if (null != lot.getCarNum()) {
+                lot.setId(id);
+                sql = "UPDATE " + lotName + " SET car_num = NULL WHERE id = ?";
+                ptmt = conn.prepareStatement(sql);
+                ptmt.setInt(1, lot.getId());
+                ptmt.execute();
+                return lot.getCarNum();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.releaseSource(conn, ptmt);
+        }
         return "";
     }
 
